@@ -25,3 +25,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.btn{
+  @apply py-4 px-8 font-bold shadow-xl border;
+}
+.btn-dark{
+  @apply bg-dark-3 text-dark-6 hover:border-dark-3;
+  /*border-dark-2 --> border-<color> with <color> = bg-color*/
+}

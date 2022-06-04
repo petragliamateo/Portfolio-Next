@@ -10,7 +10,7 @@ export default function Home() {
 
   const [height, setHeight] = React.useState(() => 0)
   const [trans, setTrans] = React.useState(() => ["scale-x-0", "scale-x-0", "scale-x-0", "scale-x-0"])
-  const [status, setStatus] = React.useState(() => 0)
+  const [status, setStatus] = React.useState(0)
   
   React.useEffect( () => {
     document.querySelector("body").classList.add("bg-[url('/BG/BG-image-SM.jpg')]");
@@ -23,7 +23,7 @@ export default function Home() {
     document.querySelector("body").classList.add("bg-fixed");
 
     setHeight(window.innerHeight)
-    console.log(height)
+    //console.log(height)
 
     reveal(0, ".reveal0")
     //Este useEffect se ejecuta al recargar la página
@@ -31,14 +31,22 @@ export default function Home() {
 
   React.useEffect( () => {
     function scroller(){
-      setStatus(prev => prev > 10000? 0 : prev+1)
+      console.log(status)
       for(let i=0; i < 4; i++){
         reveal(i, `.reveal${i}`)
       }
     }
-    window.addEventListener("scroll", scroller)
+    let k = 0
+    window.addEventListener("scroll", e => {
+      k++
+      if(k>15){
+        setStatus(prev => prev+1)
+        scroller()
+        k=0
+      }
+    } )
     //Este useEffect se ejecuta cada vez que se scrollea, gracias al status.
-  }, [status])  
+  }, [])  
 
   function reveal(id, elementClass){
     let element = document.querySelector(elementClass)
@@ -55,7 +63,7 @@ export default function Home() {
   return (
     <div className="">
       <Meta />
-      <div className={`h-[${height}px] flex flex-col`}>
+      <div className={`h-[${height != 0 ? height.toString() : "969"}px] flex flex-col`}>
         <Navbar />
         <Main trans={trans[0]}/>
         <div className="animate-bounce flex justify-center mt-auto mb-16"><img src="/Arrow.svg" width="16px"/></div>
