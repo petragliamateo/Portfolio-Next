@@ -1,6 +1,6 @@
 export default function Footer(){
     return(
-        <footer className="bg-gray-600 flex flex-col h-full relative">
+        <footer className="bg-gray-700 flex flex-col h-full relative">
 
             <ul className="flex my-5 self-center">
                 <li className="mr-2"><a href="#!"><img src="/Icons/github-light.svg" /></a></li>

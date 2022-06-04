@@ -2,7 +2,7 @@ import ProyectoMuestra from "./ProyectoMuestra"
 
 export default function Proyectos(){
     return(
-        <div className="w-full bg-dark-3 flex flex-col">
+        <div className="w-full bg-dark-3 flex flex-col" id="projects">
             <h1 className="self-center my-12 text-3xl font-semibold text-dark-6">Proyectos</h1>
 
             <div className="flex flex-col">

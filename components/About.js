@@ -2,7 +2,7 @@ import Cuadro from "./Cuadro"
 
 export default function About({trans}){
     return(
-        <div className="w-full bg-dark-4 flex flex-col">
+        <div className="w-full bg-dark-4 flex flex-col" id="about">
             <h1 className="self-center my-12 text-3xl font-semibold text-dark-6">Sobre mi</h1>
 
             <div className="flex flex-wrap justify-center mx-32">

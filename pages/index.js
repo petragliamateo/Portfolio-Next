@@ -4,6 +4,7 @@ import Footer from "../components/Footer"
 import Main from "../components/Main"
 import About from "../components/About"
 import Proyectos from "../components/Proyectos"
+import Contact from "../components/Contact"
 import React from 'react'
 
 export default function Home() {
@@ -39,7 +40,8 @@ export default function Home() {
     let k = 0
     window.addEventListener("scroll", e => {
       k++
-      if(k>15){
+      if(k>10){
+        //Aplico esto cada 10 px de scrolleo
         setStatus(prev => prev+1)
         scroller()
         k=0
@@ -63,13 +65,14 @@ export default function Home() {
   return (
     <div className="">
       <Meta />
-      <div className={`h-[${height != 0 ? height.toString() : "969"}px] flex flex-col`}>
+      <div className={`h-[${height != 0 ? height.toString() : "969"}px] flex flex-col`} id="home" >
         <Navbar />
         <Main trans={trans[0]}/>
         <div className="animate-bounce flex justify-center mt-auto mb-16"><img src="/Arrow.svg" width="16px"/></div>
       </div>
       <About trans={trans}/>
       <Proyectos />
+      <Contact />
       <Footer />
 
     </div>
