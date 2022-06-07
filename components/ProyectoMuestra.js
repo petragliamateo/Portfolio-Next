@@ -9,7 +9,7 @@ export default function ProyectoMuestra({slide, imgUrl, titulo, contenido, proje
             <div className="md:w-1/2 w-auto h-full bg-blue-500 self-center"><img src={imgUrl} /></div>
             <div className="text-center w-full flex flex-col justify-between">
                 <h1 className="my-8 text-2xl font-semibold">{titulo}</h1>
-                <p className="">{contenido}</p>
+                <p className="mx-8">{contenido}</p>
                 <a href={projectUrl} className={`my-8 w-32 mx-auto btn btn-dark border-dark-1`}>
                     Ir
                 </a>

@@ -13,7 +13,7 @@ export default function Proyectos(){
                     5 preguntas eligiendo el resultado." 
                     imgUrl="/Group 4.png"
                     projectUrl="https://github.com/petragliamateo/Quiz-game-project" />
-                <ProyectoMuestra slide={"rigth"} titulo="Titulo"
+                <ProyectoMuestra slide={"rigth"} titulo="Cocktail Now"
                     contenido="Contenido" 
                     imgUrl="/Group 4.png"
                     projectUrl="#!" />
