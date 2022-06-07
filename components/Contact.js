@@ -21,11 +21,11 @@ export default function Contact(){
     }
 
     return(
-        <div className="w-full bg-dark-4 flex flex-col shadow-xl " id="contact">
+        <div className="w-full bg-dark-4 flex flex-col" id="contact">
 
             <form onSubmit={handleSubmit} 
                 className="flex flex-col self-center w-4/5 max-w-xl bg-dark-1 
-                            my-16">
+                            my-16 shadow-xl">
 
             <h1 className="self-center my-12 text-3xl font-semibold text-gray-300">Contacto</h1>
 

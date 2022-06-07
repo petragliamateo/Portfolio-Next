@@ -24,11 +24,12 @@ export default function Home() {
     document.querySelector("body").classList.add("bg-fixed");
 
     setHeight(window.innerHeight)
-    //console.log(height)
+    window.addEventListener("resize", () => setHeight(window.innerHeight))
+    console.log("height: ",height, window.innerHeight)
 
     reveal(0, ".reveal0")
     //Este useEffect se ejecuta al recargar la página
-  }, [])
+  }, [height])
 
   React.useEffect( () => {
     function scroller(){
@@ -48,7 +49,7 @@ export default function Home() {
       }
     } )
     //Este useEffect se ejecuta cada vez que se scrollea, gracias al status.
-  }, [])  
+  }, [height])  
 
   function reveal(id, elementClass){
     let element = document.querySelector(elementClass)
@@ -61,13 +62,17 @@ export default function Home() {
     })
   }
 
+  function handleScroll(component){
+    document.querySelector(`#${component}`).scrollIntoView({behavior: 'smooth'});
+  }
+
   //A solucionar? height a veces anda y a veces no
   return (
     <div className="">
       <Meta />
-      <div className={`h-[${height != 0 ? height.toString() : "969"}px] flex flex-col`} id="home" >
-        <Navbar />
-        <Main trans={trans[0]}/>
+      <div style={{height: `${height}px`}} className={`flex flex-col`} id="home" >
+        <Navbar handleScroll={handleScroll} />
+        <Main trans={trans[0]} handleScroll={handleScroll} />
         <div className="animate-bounce flex justify-center mt-auto mb-16"><img src="/Arrow.svg" width="16px"/></div>
       </div>
       <About trans={trans}/>

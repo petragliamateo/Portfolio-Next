@@ -5,7 +5,7 @@ export default function About({trans}){
         <div className="w-full bg-dark-4 flex flex-col" id="about">
             <h1 className="self-center my-12 text-3xl font-semibold text-dark-6">Sobre mi</h1>
 
-            <div className="flex flex-wrap justify-center mx-32">
+            <div className="flex flex-wrap justify-center md:mx-32 mx-16">
 
                 <Cuadro titulo="Desarrollador Web" 
                     contenido="Tengo conocimientos y experiencia

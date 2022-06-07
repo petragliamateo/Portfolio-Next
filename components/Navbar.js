@@ -1,14 +1,13 @@
-export default function Navbar(){
+export default function Navbar({handleScroll}){
 
     const navResponsive = " hidden lg:block"
     const listMenu = "mx-2 hover:text-dark-5 transition duration-500 ease-in-out"
+    const marginResponsiveX = "lg:mx-32 md:mx-24 sm:mx-12 mx-8"
 
-    function handleScroll(component){
-        document.querySelector(`#${component}`).scrollIntoView({behavior: 'smooth'});
-    }
+    
 
     return(
-        <div className="flex justify-between my-5 mx-32 text-dark-1 text-2xl font-semibold">
+        <div className={`flex justify-between my-5 ${marginResponsiveX} text-dark-1 text-2xl font-semibold`}>
             <h1>Mateo Petraglia</h1>
 
             <div className={navResponsive}>
