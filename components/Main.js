@@ -17,9 +17,9 @@ export default function Main({trans, handleScroll}){
                 <button onClick={() => handleScroll("contact")} className={`border-dark-2 btn btn-dark`}>Contact Me</button>
 
                 <ul className="flex mb-2 mt-8">
-                    <li className={`mr-2 ${hoverButton}`}><a href="#!"><img src="/Icons/github-dark.svg" /></a></li>
-                    <li className={`mx-2 ${hoverButton}`}><a href="#!"><img src="/Icons/linkedin-dark.svg" /></a></li>
-                    <li className={`mx-2 ${hoverButton}`}><a href="#!"><img src="/Icons/instagram-dark.svg" /></a></li>
+                    <li className={`mr-2 ${hoverButton}`}><a href="https://github.com/petragliamateo"><img src="/Icons/github-dark.svg" /></a></li>
+                    <li className={`mx-2 ${hoverButton}`}><a href="https://www.linkedin.com/in/petragliamateo/"><img src="/Icons/linkedin-dark.svg" /></a></li>
+                    <li className={`mx-2 ${hoverButton}`}><a href="https://www.instagram.com/petragliamateo/"><img src="/Icons/instagram-dark.svg" /></a></li>
                 </ul>
             </div>
         

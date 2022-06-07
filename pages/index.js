@@ -66,7 +66,8 @@ export default function Home() {
     document.querySelector(`#${component}`).scrollIntoView({behavior: 'smooth'});
   }
 
-  //A solucionar? height a veces anda y a veces no
+  //A solucionar: Uso muchas veces las mismas variables en distintos componentes.
+  //Podría usar un provider con useContext y pasarlas globalmente? o Redux?
   return (
     <div className="">
       <Meta />
