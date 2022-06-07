@@ -1,6 +1,5 @@
 export default function Main({trans, handleScroll}){ 
 
-    const marginResponsiveY = "xl:my-56 lg:my-48 md:my-32 sm:my-16 my-12"
     const marginResponsiveX = "xl:mx-52 lg:mx-48 md:mx-32 sm:mx-16 mx-12"
     const hoverButton = "hover:scale-125 transition-transform duration-400 ease-out"
 

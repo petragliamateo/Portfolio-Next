@@ -78,7 +78,7 @@ export default function Home() {
       <About trans={trans}/>
       <Proyectos />
       <Contact />
-      <Footer />
+      <Footer handleScroll={handleScroll} />
 
     </div>
   )
