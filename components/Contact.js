@@ -1,6 +1,8 @@
 /* eslint-disable no-alert */
 import React from 'react';
-import { collection, addDoc, getFirestore } from 'firebase/firestore';
+import {
+  setDoc, doc, getFirestore,
+} from 'firebase/firestore';
 import { app } from './firebase';
 
 export default function Contact() {
@@ -13,14 +15,23 @@ export default function Contact() {
   function handleSubmit(event) {
     event.preventDefault();
     setLoading(true);
+
+    // Creo ID mediante Date:
+    const date = new Date();
+    const dateF = date.toString().split(' ');
+    const dateMes = date.getMonth() < 9 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+    const fecha = `${dateF[3]}-${dateMes}-${dateF[2]}-${dateF[4]}`;
+    const dateID = `${fecha.replaceAll('-', '')}-${Math.floor(Math.random() * 1000)}`;
+
     // Subo el contacto a firebase:
     const db = getFirestore(app);
-    const coll = collection(db, 'contacts');
+    const coll = doc(db, 'contacts', dateID);
     // eslint-disable-next-line no-unused-vars
-    const docRef = addDoc(coll, {
+    const setRef = setDoc(coll, {
       name: formData.Name,
       email: formData.Email,
       message: formData.Message,
+      fecha,
     })
       .then(() => {
         window.alert('👍 Mensaje enviado. Gracias por contactarte 👍');
