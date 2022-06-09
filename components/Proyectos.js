@@ -11,7 +11,7 @@ export default function Proyectos(){
                     contenido="Juego creado con React, utilizando API de
                     Trivias tipo multiple choice, el jugador debe responder
                     5 preguntas eligiendo el resultado." 
-                    imgUrl="/Group 4.png"
+                    imgUrl="/images/Quizzical2.png"
                     projectUrl="https://github.com/petragliamateo/Quiz-game-project" />
                 <ProyectoMuestra slide={"rigth"} titulo="Netflix clone App"
                     contenido={`Aplicación para celular creada con react-native,

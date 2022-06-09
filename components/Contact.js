@@ -1,49 +1,90 @@
-import React from "react";
+/* eslint-disable no-alert */
+import React from 'react';
+import { collection, addDoc, getFirestore } from 'firebase/firestore';
+import { app } from './firebase';
 
-export default function Contact(){
+export default function Contact() {
+  const [formData, setFormData] = React.useState({
+    Name: '', Email: '', Message: '',
+  });
+  const [loading, setLoading] = React.useState(false);
+  const inputStyle = 'mx-10 mb-5 h-10 bg-dark-2 text-white p-5 outline-dark-3 caret-dark-6';
 
-    const [formData, setFormData] = React.useState({
-        Name: "", Email: "", Message: "",
+  function handleSubmit(event) {
+    event.preventDefault();
+    setLoading(true);
+    // Subo el contacto a firebase:
+    const db = getFirestore(app);
+    const coll = collection(db, 'contacts');
+    // eslint-disable-next-line no-unused-vars
+    const docRef = addDoc(coll, {
+      name: formData.Name,
+      email: formData.Email,
+      message: formData.Message,
     })
-    const inputStyle = "mx-10 mb-5 h-10 bg-dark-2 text-white p-5 outline-dark-3 caret-dark-6"
+      .then(() => {
+        window.alert('👍 Mensaje enviado. Gracias por contactarte 👍');
+        setFormData({ Name: '', Email: '', Message: '' });
+        setLoading(false);
+      })
+      .catch((error) => {
+        window.alert(error.message);
+        setLoading(false);
+      });
+  }
 
-    function handleSubmit(event){
-        event.preventDefault();
-        console.log(formData)
-        window.alert("Sended")
-    }
+  function handleChange(event) {
+    setFormData((prev) => ({
+      ...prev,
+      [event.target.name]: event.target.value,
+    }));
+  }
 
-    function handleChange(event){
-        setFormData(prev => ({
-            ...prev,
-            [event.target.name] : event.target.value,
-        }))
-    }
+  return (
+    <div className="w-full bg-dark-4 flex flex-col" id="contact">
 
-    return(
-        <div className="w-full bg-dark-4 flex flex-col" id="contact">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col self-center w-4/5 max-w-xl bg-dark-1
+                            my-16 shadow-xl"
+      >
 
-            <form onSubmit={handleSubmit} 
-                className="flex flex-col self-center w-4/5 max-w-xl bg-dark-1 
-                            my-16 shadow-xl">
+        <h1 className="self-center my-12 text-3xl font-semibold text-gray-300">Contacto</h1>
 
-            <h1 className="self-center my-12 text-3xl font-semibold text-gray-300">Contacto</h1>
+        <input
+          type="text"
+          placeholder="Name"
+          onChange={handleChange}
+          name="Name"
+          value={formData.Name}
+          required
+          className={inputStyle}
+        />
 
-                <input type="text" placeholder="Name" onChange={handleChange}
-                        name="Name" required
-                        className={inputStyle} />
+        <input
+          type="email"
+          placeholder="Email"
+          onChange={handleChange}
+          name="Email"
+          value={formData.Email}
+          required
+          className={inputStyle}
+        />
 
-                <input type="email" placeholder="Email" onChange={handleChange}
-                        name="Email" required
-                        className={inputStyle} />
+        <textarea
+          placeholder="Message"
+          onChange={handleChange}
+          name="Message"
+          value={formData.Message}
+          className={`${inputStyle} h-64`}
+        />
 
-                <textarea name="Message" placeholder="Message" onChange={handleChange}
-                        className={`${inputStyle} h-64`} />
+        <button type="submit" className="btn btn-dark border-dark-3 active:border-dark-4">
+          {loading ? 'Sending..' : 'Submit'}
+        </button>
 
-                <button className="btn btn-dark border-dark-3 active:border-dark-4">Submit</button>
+      </form>
 
-            </form>
-
-        </div>
-    )
+    </div>
+  );
 }
