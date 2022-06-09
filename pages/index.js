@@ -29,7 +29,7 @@ export default function Home() {
   }
 
   React.useEffect(() => {
-    document.querySelector('body').classList.add("bg-[url('/BG/BG-image-SM.jpg')]");
+    document.querySelector('body').classList.add("bg-[url('/BG/BG-image-movile.jpg')]");
     document.querySelector('body').classList.add("sm:bg-[url('/BG/BG-image-MD.jpg')]");
     document.querySelector('body').classList.add("md:bg-[url('/BG/BG-image-LG.jpg')]");
     document.querySelector('body').classList.add("lg:bg-[url('/BG/BG-image-XL.jpg')]");
@@ -65,16 +65,16 @@ export default function Home() {
   }, []);
 
   // A solucionar: Uso muchas veces las mismas variables en distintos componentes.
+  // \-> Puedo definirlas en CSS.
   // Podría usar un provider con useContext y pasarlas globalmente? o Redux?
-  // Corregir background para dispositivos moviles
   return (
-    <div className="">
+    <div style={{ width: '100%' }}>
 
       <Meta />
       <div style={{ height: `${height}px` }} className="flex flex-col" id="home">
         <Navbar handleScroll={handleScroll} />
         <Main trans={trans[0]} handleScroll={handleScroll} />
-        <div className="animate-bounce flex justify-center mt-auto mb-16"><img src="/Arrow.svg" width="16px" alt="" /></div>
+        <div className="animate-bounce flex justify-center mt-auto mb-16"><img src="/Icons/Arrow.svg" width="16px" alt="" /></div>
       </div>
       <About trans={trans} />
       <Proyectos />
