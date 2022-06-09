@@ -13,10 +13,11 @@ export default function Proyectos(){
                     5 preguntas eligiendo el resultado." 
                     imgUrl="/Group 4.png"
                     projectUrl="https://github.com/petragliamateo/Quiz-game-project" />
-                <ProyectoMuestra slide={"rigth"} titulo="Cocktail Now"
-                    contenido="Contenido" 
+                <ProyectoMuestra slide={"rigth"} titulo="Netflix clone App"
+                    contenido={`Aplicación para celular creada con react-native,
+                     clonando la aplicación original de Netflix.`}
                     imgUrl="/Group 4.png"
-                    projectUrl="#!" />
+                    projectUrl="https://github.com/petragliamateo/Netflix-clone-app" />
 
             </div>
 

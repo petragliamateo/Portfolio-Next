@@ -33,7 +33,6 @@ export default function Home() {
 
   React.useEffect( () => {
     function scroller(){
-      console.log(status)
       for(let i=0; i < 4; i++){
         reveal(i, `.reveal${i}`)
       }
@@ -49,7 +48,7 @@ export default function Home() {
       }
     } )
     //Este useEffect se ejecuta cada vez que se scrollea, gracias al status.
-  }, [height])  
+  }, [])  
 
   function reveal(id, elementClass){
     let element = document.querySelector(elementClass)

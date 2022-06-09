@@ -29,10 +29,11 @@ export default function Navbar({handleScroll}){
                         </li>
                     </ul>
                 </div>
-                
+                {/*
                 <div className={navResponsive}>
                     <div>DarkMode</div>
                 </div>
+                */}
                 <div className="block lg:hidden cursor-pointer" onClick={() => setSlide(prev => !prev)}>
                     Menu
                 </div>
