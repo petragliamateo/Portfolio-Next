@@ -11,7 +11,7 @@ export default function Proyectos() {
           slide="rigth"
           titulo="Netflix clone App"
           contenido={`Aplicación para celular creada con react-native,
-                       clonando la aplicación original de Netflix. (En progreso..)`}
+                       clonando la aplicación original de Netflix.`}
           imgUrl="/images/Netflix-clone.png"
           projectUrl="https://github.com/petragliamateo/Netflix-clone-app"
         />
