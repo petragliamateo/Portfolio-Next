@@ -71,7 +71,7 @@ export default function Home() {
     <div style={{ width: '100%' }}>
 
       <Meta />
-      <div style={{ height: `${height}px` }} className="flex flex-col" id="home">
+      <div style={{ height: height === 0 ? '100%' : `${height}px` }} className="flex flex-col" id="home">
         <Navbar handleScroll={handleScroll} />
         <Main trans={trans[0]} handleScroll={handleScroll} />
         <div className="animate-bounce flex justify-center mt-auto mb-16"><img src="/Icons/Arrow.svg" width="16px" alt="" /></div>
