@@ -11,7 +11,11 @@ export default function Proyectos() {
           slide="rigth"
           titulo="Netflix clone App"
           contenido={`Aplicación para celular creada con react-native,
-                       clonando la aplicación original de Netflix.`}
+                       clonando la aplicación original de Netflix. Esta
+                       aplicación simula a la aplicación original, con funcionalidades como
+                       registrarse e iniciar sesión, para esto se utilizó
+                       Authentication de Firebase; también se utiliza una database Firestore
+                       subida a Firebase donde contiene series y películas.`}
           imgUrl="/images/Netflix-clone.png"
           projectUrl="https://github.com/petragliamateo/Netflix-clone-app"
         />
