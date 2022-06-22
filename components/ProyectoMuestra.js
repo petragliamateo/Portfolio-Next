@@ -1,5 +1,5 @@
 export default function ProyectoMuestra({
-  slide, imgUrl, titulo, contenido, projectUrl,
+  slide, imgUrl, titulo, contenido, projectUrl, projectMsg = 'Ir', gitUrl,
 }) {
   const position = slide === 'left' ? 'md:mr-auto lg:ml-32 md:ml-16 mx-12 md:flex-row'
     : 'md:ml-auto lg:mr-32 md:mr-16 mx-12 md:flex-row-reverse';
@@ -11,9 +11,14 @@ export default function ProyectoMuestra({
       <div className="text-center w-full flex flex-col justify-between">
         <h1 className="my-8 text-2xl font-semibold">{titulo}</h1>
         <p className="mx-8">{contenido}</p>
-        <a href={projectUrl} className="my-8 w-32 mx-auto btn btn-dark border-dark-1">
-          Ir
-        </a>
+        <div className="flex items-center justify-center my-8">
+          <a href={projectUrl} className="mx-4 w-48 btn btn-dark border-dark-1">
+            {projectMsg}
+          </a>
+          <a href={gitUrl} className="mx-4 border-dark-1 flex justify-between items-center h-full px-3 shadow-xl rounded-full border bg-dark-3 hover:border-dark-3">
+            <img alt="" src="/Icons/github-light.svg" />
+          </a>
+        </div>
       </div>
     </div>
   );

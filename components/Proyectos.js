@@ -18,15 +18,17 @@ export default function Proyectos() {
                        subida a Firebase donde contiene series y películas.`}
           imgUrl="/images/Netflix-clone.png"
           projectUrl="https://github.com/petragliamateo/Netflix-clone-app"
+          projectMsg="Descargar APK"
+          gitUrl="https://github.com/petragliamateo/Netflix-clone-app"
         />
         <ProyectoMuestra
           slide="left"
-          titulo="Quiz Game"
-          contenido="Juego creado con React, utilizando API de
-                    Trivias tipo multiple choice, el jugador debe responder
-                    5 preguntas eligiendo el resultado."
-          imgUrl="/images/Quizzical2.png"
-          projectUrl="https://github.com/petragliamateo/Quiz-game-project"
+          titulo="Juegones"
+          contenido="Recopilación de algunos juegos y/o aplicaciones
+                    creados usando React, APIs o simplemente JavaScript."
+          imgUrl="/images/Juegones.png"
+          projectUrl="https://juegones.vercel.app/"
+          gitUrl="https://github.com/petragliamateo/Juegones"
         />
 
         <a
