@@ -17,7 +17,7 @@ export default function Proyectos() {
                        Authentication de Firebase; también se utiliza una database Firestore
                        subida a Firebase donde contiene series y películas.`}
           imgUrl="/images/Netflix-clone.png"
-          projectUrl="https://expo.dev/artifacts/407c079f-4f68-45ea-921c-edc54527f821"
+          projectUrl="https://expo.dev/artifacts/60d41dfa-8c3a-44d1-b5eb-c8ad12ba218e"
           projectMsg="Descargar APK"
           gitUrl="https://github.com/petragliamateo/Netflix-Clone-Android"
         />
