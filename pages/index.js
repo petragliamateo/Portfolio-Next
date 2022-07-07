@@ -10,6 +10,9 @@ import Contact from '../components/Contact';
 export default function Home() {
   const [height, setHeight] = React.useState(() => 0);
   const [trans, setTrans] = React.useState(() => ['scale-x-0', 'scale-x-0', 'scale-x-0', 'scale-x-0']);
+  const [bg, setBg] = React.useState({
+    body: "bg-[url('/images/nightSky.jpg')]", projects: "bg-[url('/images/buildings.jpg')]",
+  });
   // eslint-disable-next-line no-unused-vars
   const [status, setStatus] = React.useState(0);
 
@@ -28,7 +31,17 @@ export default function Home() {
     document.querySelector(`#${component}`).scrollIntoView({ behavior: 'smooth' });
   }
 
+  const slowScroll = (element, n = 0) => {
+    const scrolltotop = document.scrollingElement.scrollTop;
+    const target = document.querySelector(element);
+    const xvalue = 'center';
+    const factor = 0.5;
+    const yvalue = (scrolltotop - n) * factor;
+    target.style.backgroundPosition = `${xvalue} ${yvalue}px`;
+  };
+
   React.useEffect(() => {
+    /*
     document.querySelector('body').classList.add("bg-[url('/BG/BG-image-movile.jpg')]");
     document.querySelector('body').classList.add("sm:bg-[url('/BG/BG-image-MD.jpg')]");
     document.querySelector('body').classList.add("md:bg-[url('/BG/BG-image-LG.jpg')]");
@@ -37,6 +50,22 @@ export default function Home() {
     document.querySelector('body').classList.add("2xl:bg-[url('/BG/BG-image-3XL.jpg')]");
     document.querySelector('body').classList.add('bg-dark-3');
     document.querySelector('body').classList.add('bg-fixed');
+    */
+    document.querySelector('body').classList.add(bg.body);
+    document.querySelector('body').classList.add('bg-scroll');
+    document.querySelector('body').classList.add('bg-left-top');
+
+    document.querySelector('#projects').classList.add(bg.projects);
+    document.querySelector('#projects').classList.add('bg-scroll');
+
+    const projectInitialPosition = document.querySelector('#projects').getBoundingClientRect().y;
+    slowScroll('body');
+    slowScroll('#projects', projectInitialPosition);
+
+    document.querySelector('body').onscroll = () => {
+      slowScroll('body');
+      slowScroll('#projects', projectInitialPosition);
+    };
 
     setHeight(window.innerHeight);
     window.addEventListener('resize', () => setHeight(window.innerHeight));
