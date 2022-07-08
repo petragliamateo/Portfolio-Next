@@ -54,6 +54,12 @@ export default function Home() {
     document.querySelector('body').classList.add(bg.body);
     document.querySelector('body').classList.add('bg-scroll');
     document.querySelector('body').classList.add('bg-left-top');
+    document.querySelector('body').classList.add('blur-sm');
+    setTimeout(() => {
+      document.querySelector('body').classList.remove('blur-sm');
+      document.querySelector('body').classList.add('transition');
+      document.querySelector('body').classList.add('duration-700');
+    }, 100);
 
     document.querySelector('#projects').classList.add(bg.projects);
     document.querySelector('#projects').classList.add('bg-scroll');
@@ -65,6 +71,7 @@ export default function Home() {
     document.querySelector('body').onscroll = () => {
       slowScroll('body');
       slowScroll('#projects', projectInitialPosition);
+      slowScroll('#about');
     };
 
     setHeight(window.innerHeight);

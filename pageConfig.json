@@ -1,0 +1,43 @@
+{
+  "about": [
+    {
+      "titulo": "Desarrollador Web",
+      "contenido": "Tengo conocimientos y experiencia desarrollando aplicaciones web, principalmente usando React JS y React Native para aplicaciones móviles. Me manejo bien en la creación de estilos mediante CSS, utilizando el preprocesador Sass y/o el framework Tailwind CSS. También tengo experiencia en proyectos utilizando Next JS.",
+      "id": 1
+    },
+    {
+      "titulo": "Estudios",
+      "contenido": "Actualmente soy estudiante de grado en Ingeniería Electrónica y constantemente estoy realizando cursos de programación. Estudié durante 3 años la carrera de grado Licenciatura en Astronomía, en la Universidad Nacional de La Plata. Con esto, tengo fuertes conocimientos en matemáticas, estadística, física y computación.",
+      "id": 2
+    },
+    {
+      "titulo": "Intereses",
+      "contenido": "Mi principal objetivo es crecer mis habilidades y aprender algo nuevo cada día. Me gusta estar constantemente superandome y proponiendome nuevas metas y objetivos. Mis intereses actuales son poder desarrollarme dentro de una empresa que me permita adoptar nuevos conocimientos y experiencias.",
+      "id": 3
+    }
+  ],
+  "projects": [
+    {
+      "titulo": "Netflix clone App",
+      "contenido": "Aplicación para celular creada con react-native, clonando la aplicación original de Netflix. Esta aplicación simula a la aplicación original, con funcionalidades como registrarse e iniciar sesión, para esto se utilizó Authentication de Firebase; también se utiliza una database Firestore subida a Firebase donde contiene series y películas.",
+      "imgUrl": "/images/Netflix-clone.png",
+      "progectUrl": "https://expo.dev/artifacts/60d41dfa-8c3a-44d1-b5eb-c8ad12ba218e",
+      "projectMsg": "Descargar APK",
+      "gitUrl": "https://github.com/petragliamateo/Netflix-Clone-Android",
+      "id": 1
+    },
+    {
+      "titulo": "Juegones",
+      "contenido": "Recopilación de algunos juegos y/o aplicaciones creados usando React, APIs o simplemente JavaScript.",
+      "imgUrl": "/images/Juegones.png",
+      "progectUrl": "https://juegones.vercel.app/",
+      "projectMsg": "Ir",
+      "gitUrl": "https://github.com/petragliamateo/Juegones",
+      "id": 2
+    }
+  ],
+  "palettes": {
+    "nightSky": ["#010B40", "#0F1B40", "#D96907", "#BF4904", "#260101"],
+    "nightSkyDark": ["#010B40", "#010626", "#593B02", "#401801", "#0D0000"]
+  }
+}

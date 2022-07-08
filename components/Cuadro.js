@@ -1,6 +1,7 @@
-export default function Cuadro({
-  trans, id, titulo, contenido,
-}) {
+export default function Cuadro({ data, trans }) {
+  const {
+    id, titulo, contenido,
+  } = data;
   return (
     <div className="md:mx-16 mx-8 mb-16 w-64">
       <h1 className="text-xl font-semibold text-center text-dark-5">{titulo}</h1>
