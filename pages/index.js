@@ -16,6 +16,12 @@ export default function Home() {
   // eslint-disable-next-line no-unused-vars
   const [status, setStatus] = React.useState(0);
 
+  let aboutHeigth = 488;
+  const aboutBackStyle = {
+    height: aboutHeigth, width: '100%', top: height, position: 'absolute',
+    filter: 'blur(10px)',
+  };
+
   function reveal(id, elementClass) {
     const element = document.querySelector(elementClass);
     const position = element.getBoundingClientRect().top;
@@ -71,11 +77,12 @@ export default function Home() {
     document.querySelector('body').onscroll = () => {
       slowScroll('body');
       slowScroll('#projects', projectInitialPosition);
-      slowScroll('#about');
+      slowScroll('#aboutBack', -height);
     };
 
     setHeight(window.innerHeight);
     window.addEventListener('resize', () => setHeight(window.innerHeight));
+    aboutHeigth = document.querySelector('#about').offsetHeight;
 
     reveal(0, '.reveal0');
     // Este useEffect se ejecuta al recargar la página
@@ -112,6 +119,7 @@ export default function Home() {
         <Main trans={trans[0]} handleScroll={handleScroll} />
         <div className="animate-bounce flex justify-center mt-auto mb-16"><img src="/Icons/Arrow.svg" width="16px" alt="" /></div>
       </div>
+      <div id="aboutBack" style={aboutBackStyle} className={bg.body} />
       <About trans={trans} />
       <Proyectos />
       <Contact />
