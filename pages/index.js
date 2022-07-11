@@ -8,18 +8,23 @@ import Proyectos from '../components/Proyectos';
 import Contact from '../components/Contact';
 
 export default function Home() {
+  // Tarea: Organizar.... Usar Redux. Separar funciones en src/utils/functions.js.
+  // Separar componentes containers
   const [height, setHeight] = React.useState(() => 0);
   const [trans, setTrans] = React.useState(() => ['scale-x-0', 'scale-x-0', 'scale-x-0', 'scale-x-0']);
   const [bg, setBg] = React.useState({
-    body: "bg-[url('/images/nightSky.jpg')]", projects: "bg-[url('/images/buildings.jpg')]",
+    body: "bg-[url('/images/nightSky.jpg')]", projects: "bg-[url('/images/buildings.jpg')]", theme: 'dark',
   });
   // eslint-disable-next-line no-unused-vars
   const [status, setStatus] = React.useState(0);
 
-  let aboutHeigth = 488;
+  let aboutHeigth = 478;
   const aboutBackStyle = {
-    height: aboutHeigth, width: '100%', top: height, position: 'absolute',
-    filter: 'blur(10px)',
+    height: aboutHeigth,
+    width: '100%',
+    top: height,
+    position: 'absolute',
+    backgroundImage: "url('/images/nightSkyBlur.png')",
   };
 
   function reveal(id, elementClass) {
@@ -115,11 +120,11 @@ export default function Home() {
 
       <Meta />
       <div style={{ height: height === 0 ? '100%' : `${height}px` }} className="flex flex-col" id="home">
-        <Navbar handleScroll={handleScroll} />
+        <Navbar handleScroll={handleScroll} bg={bg} setBg={setBg} />
         <Main trans={trans[0]} handleScroll={handleScroll} />
         <div className="animate-bounce flex justify-center mt-auto mb-16"><img src="/Icons/Arrow.svg" width="16px" alt="" /></div>
       </div>
-      <div id="aboutBack" style={aboutBackStyle} className={bg.body} />
+      <div id="aboutBack" style={aboutBackStyle} />
       <About trans={trans} />
       <Proyectos />
       <Contact />

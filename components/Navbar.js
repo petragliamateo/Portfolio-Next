@@ -2,12 +2,28 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 
-export default function Navbar({ handleScroll }) {
+export default function Navbar({ handleScroll, bg, setBg }) {
   const navResponsive = ' hidden lg:block';
   const listMenu = 'mx-2 hover:text-dark-5 transition duration-500 ease-in-out';
   const marginResponsiveX = 'lg:mx-32 md:mx-24 sm:mx-12 mx-8';
   const slideItem = 'bg-dark-4 w-full h-12 mx-auto hover:text-dark-5 transition-transform';
   const [slide, setSlide] = React.useState(false);
+
+  const handleDarkmode = () => {
+    if (bg.theme === 'dark') {
+      setBg((prev) => ({
+        ...prev,
+        bg: "bg-[url('/images/daySky.jpg')]",
+        projects: "bg-[url('/images/buildings-xl.jpg')]",
+      }));
+      return;
+    }
+    setBg((prev) => ({
+      ...prev,
+      bg: "bg-[url('/images/nightSky.jpg')]",
+      projects: "bg-[url('/images/buildings-xl.jpg')]",
+    }));
+  };
 
   return (
     <div>
@@ -27,6 +43,9 @@ export default function Navbar({ handleScroll }) {
             </li>
             <li className={listMenu}>
               <button type="button" onClick={() => handleScroll('contact')}>Contact</button>
+            </li>
+            <li className={listMenu}>
+              <button type="button" onClick={handleDarkmode}>O</button>
             </li>
           </ul>
         </div>
