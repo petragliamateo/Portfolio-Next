@@ -10,6 +10,7 @@ export default function Navbar({ handleScroll, bg, setBg }) {
   const [slide, setSlide] = React.useState(false);
 
   const handleDarkmode = () => {
+    /*
     if (bg.theme === 'dark') {
       setBg((prev) => ({
         ...prev,
@@ -23,6 +24,7 @@ export default function Navbar({ handleScroll, bg, setBg }) {
       bg: "bg-[url('/images/nightSky.jpg')]",
       projects: "bg-[url('/images/buildings-xl.jpg')]",
     }));
+    */
   };
 
   return (
