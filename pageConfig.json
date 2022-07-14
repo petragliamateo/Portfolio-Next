@@ -2,17 +2,17 @@
   "about": [
     {
       "titulo": "Desarrollador Web",
-      "contenido": "Tengo conocimientos y experiencia desarrollando aplicaciones web, principalmente usando React JS y React Native para aplicaciones móviles. Me manejo bien en la creación de estilos mediante CSS, utilizando el preprocesador Sass y/o el framework Tailwind CSS. También tengo experiencia en proyectos utilizando Next JS.",
+      "contenido": "Experiencia desarrollando aplicaciones web, principalmente usando React JS. Me manejo bien en la creación de estilos mediante CSS, utilizando el preprocesador Sass y/o el framework Tailwind CSS.",
       "id": 1
     },
     {
       "titulo": "Estudios",
-      "contenido": "Actualmente soy estudiante de grado en Ingeniería Electrónica y constantemente estoy realizando cursos de programación. Estudié durante 3 años la carrera de grado Licenciatura en Astronomía, en la Universidad Nacional de La Plata. Con esto, tengo fuertes conocimientos en matemáticas, estadística, física y computación.",
+      "contenido": "Desarrollador Full Stack certificado. Estudiante de grado de Licenciatura en Sistemas, exestudiante de Astronomía. Conocimientos de bases de datos con MongoDB",
       "id": 2
     },
     {
-      "titulo": "Intereses",
-      "contenido": "Mi principal objetivo es crecer mis habilidades y aprender algo nuevo cada día. Me gusta estar constantemente superandome y proponiendome nuevas metas y objetivos. Mis intereses actuales son poder desarrollarme dentro de una empresa que me permita adoptar nuevos conocimientos y experiencias.",
+      "titulo": "Aplicaciones Moviles",
+      "contenido": "Experiencia en la creación de aplicaciones móviles, con React Native en Expo para deploy en SDK o en la App Store.",
       "id": 3
     }
   ],
@@ -38,6 +38,24 @@
   ],
   "palettes": {
     "nightSky": ["#010B40", "#0F1B40", "#D96907", "#BF4904", "#260101"],
-    "nightSkyDark": ["#010B40", "#010626", "#593B02", "#401801", "#0D0000"]
+    "nightSkyDark": ["#010B40", "#010626", "#593B02", "#401801", "#0D0000"],
+    "daySky": ["#485673", "#F2CB05", "#BF7E04", "#8C3503", "#D9B6A3"],
+    "original":  ["#828ECF", "#525982", "#222536", "#2A2D42", "#202333", "#929FE8", "#9FBDD6"]
+  },
+  "palettesObj": {
+    "nightSkyDark": {
+      "main": "#0D0000",
+      "navbar": "#260101",
+      "line": "#D9B6A3",
+      "button": "#485673",
+      "text": "#929FE8"
+    },
+    "original": {
+      "main": "#9FBDD6",
+      "navbar": "#525982",
+      "line": "#828ECF",
+      "button": "#2A2D42",
+      "text": "#929FE8"
+    }
   }
 }

@@ -1,7 +1,8 @@
 import ProyectoMuestra from './ProyectoMuestra';
-import { projects } from '../pageConfig.json';
+import * as content from '../pageConfig.json';
 
 export default function Proyectos() {
+  const { projects } = content;
   return (
     <div className="w-full flex flex-col" id="projects">
       <h1 className="self-center mt-16 text-3xl font-semibold text-dark-6">Proyectos</h1>

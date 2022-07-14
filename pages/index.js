@@ -1,8 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setItem } from '../reducer/reducer';
+import { setItem, toggleDarkmode } from '../reducer/reducer';
 import { initialRender, aboutBackStyle } from '../utils/config';
+
+import { palettes } from '../pageConfig.json';
 
 import Meta from '../components/Meta';
 import Navbar from '../components/Navbar';
@@ -13,15 +15,13 @@ import Proyectos from '../components/Proyectos';
 import Contact from '../components/Contact';
 
 export default function Home() {
-  // Tarea: Organizar.... Usar Redux. Separar funciones en src/utils/functions.js.
   // Separar componentes containers
+  // Separar todos los elementos de estilos que usen darkmode en sus bojectos estilos
   const dispatch = useDispatch();
   const state = useSelector((store) => store);
   const {
     trans, height, backgroundImagen, projectsImagen, aboutImagen, aboutHeigth,
   } = state;
-  const bg = { body: `bg-[url('/${backgroundImagen}')]`, projects: `bg-[url('/${projectsImagen}')]` };
-  // eslint-disable-next-line no-unused-vars
 
   function reveal(id, elementClass) {
     const element = document.querySelector(elementClass);
@@ -37,15 +37,27 @@ export default function Home() {
   }
 
   React.useEffect(() => {
-    initialRender(backgroundImagen, projectsImagen, height);
+    // if localStorage... --> darkmodeOn?
+    if (true) {
+      dispatch(toggleDarkmode());
+    }
+  }, []);
 
+  React.useEffect(() => {
     dispatch(setItem('height', window.innerHeight));
     window.addEventListener('resize', () => dispatch(setItem('height', window.innerHeight)));
     dispatch(setItem('aboutHeigth', document.querySelector('#about').offsetHeight));
 
+    initialRender(backgroundImagen, projectsImagen, height, aboutHeigth);
+    setTimeout(() => {
+      document.querySelector('body').classList.remove('blur-sm');
+      document.querySelector('body').classList.add('transition');
+      document.querySelector('body').classList.add('duration-700');
+    }, 100);
+
     reveal(0, '.reveal0');
     // Este useEffect se ejecuta al recargar la página
-  }, [height]);
+  }, [height, backgroundImagen]);
 
   React.useEffect(() => {
     function scroller() {
@@ -67,13 +79,12 @@ export default function Home() {
 
   // A solucionar: Uso muchas veces las mismas variables en distintos componentes.
   // \-> Puedo definirlas en CSS.
-  // Podría usar un provider con useContext y pasarlas globalmente? o Redux?
   return (
     <div style={{ width: '100%' }}>
 
       <Meta />
       <div style={{ height: height === 0 ? '100%' : `${height}px` }} className="flex flex-col" id="home">
-        <Navbar handleScroll={handleScroll} bg={bg} setBg={null} />
+        <Navbar handleScroll={handleScroll} />
         <Main trans={trans[0]} handleScroll={handleScroll} />
         <div className="animate-bounce flex justify-center mt-auto mb-16"><img src="/Icons/Arrow.svg" width="16px" alt="" /></div>
       </div>
