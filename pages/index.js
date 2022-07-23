@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setItem, toggleDarkmode } from '../reducer/reducer';
 import { initialRender, aboutBackStyle } from '../utils/config';
 
-import { palettes } from '../pageConfig.json';
-
 import Meta from '../components/Meta';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
