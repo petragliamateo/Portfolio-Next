@@ -40,7 +40,8 @@
     "nightSky": ["#010B40", "#0F1B40", "#D96907", "#BF4904", "#260101"],
     "nightSkyDark": ["#010B40", "#010626", "#593B02", "#401801", "#0D0000"],
     "daySky": ["#485673", "#F2CB05", "#BF7E04", "#8C3503", "#D9B6A3"],
-    "original":  ["#828ECF", "#525982", "#222536", "#2A2D42", "#202333", "#929FE8", "#9FBDD6"]
+    "original":  ["#828ECF", "#525982", "#222536", "#2A2D42", "#202333", "#929FE8", "#9FBDD6"],
+    "originalMod": ["", "", "", "", "", "", "#9EB1BE"]
   },
   "palettesObj": {
     "nightSkyDark": {
@@ -48,14 +49,16 @@
       "navbar": "#260101",
       "line": "#D9B6A3",
       "button": "#485673",
-      "text": "#929FE8"
+      "text": "#929FE8",
+      "dark6": "#9FBDD6"
     },
     "original": {
       "main": "#9FBDD6",
       "navbar": "#525982",
       "line": "#828ECF",
       "button": "#2A2D42",
-      "text": "#929FE8"
+      "text": "#929FE8",
+      "dark6": "#9FBDD6"
     }
   }
 }
