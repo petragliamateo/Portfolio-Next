@@ -1,4 +1,9 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { setItem } from '../reducer/reducer';
+import { initialRender, aboutBackStyle } from '../utils/config';
+
 import Meta from '../components/Meta';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -8,20 +13,23 @@ import Proyectos from '../components/Proyectos';
 import Contact from '../components/Contact';
 
 export default function Home() {
-  const [height, setHeight] = React.useState(() => 0);
-  const [trans, setTrans] = React.useState(() => ['scale-x-0', 'scale-x-0', 'scale-x-0', 'scale-x-0']);
+  // Tarea: Organizar.... Usar Redux. Separar funciones en src/utils/functions.js.
+  // Separar componentes containers
+  const dispatch = useDispatch();
+  const state = useSelector((store) => store);
+  const {
+    trans, height, backgroundImagen, projectsImagen, aboutImagen, aboutHeigth,
+  } = state;
+  const bg = { body: `bg-[url('/${backgroundImagen}')]`, projects: `bg-[url('/${projectsImagen}')]` };
   // eslint-disable-next-line no-unused-vars
-  const [status, setStatus] = React.useState(0);
 
   function reveal(id, elementClass) {
     const element = document.querySelector(elementClass);
     const position = element.getBoundingClientRect().top;
 
-    setTrans((prev) => {
-      const newTrans = prev;
-      newTrans[id] = position > 0 && position < window.innerHeight ? 'scale-x-150' : 'scale-x-0';
-      return newTrans;
-    });
+    const newTrans = state.trans;
+    newTrans[id] = position > 0 && position < window.innerHeight ? 'scale-x-150' : 'scale-x-0';
+    dispatch(setItem('trans', newTrans));
   }
 
   function handleScroll(component) {
@@ -29,17 +37,11 @@ export default function Home() {
   }
 
   React.useEffect(() => {
-    document.querySelector('body').classList.add("bg-[url('/BG/BG-image-movile.jpg')]");
-    document.querySelector('body').classList.add("sm:bg-[url('/BG/BG-image-MD.jpg')]");
-    document.querySelector('body').classList.add("md:bg-[url('/BG/BG-image-LG.jpg')]");
-    document.querySelector('body').classList.add("lg:bg-[url('/BG/BG-image-XL.jpg')]");
-    document.querySelector('body').classList.add("xl:bg-[url('/BG/BG-image-2XL.jpg')]");
-    document.querySelector('body').classList.add("2xl:bg-[url('/BG/BG-image-3XL.jpg')]");
-    document.querySelector('body').classList.add('bg-dark-3');
-    document.querySelector('body').classList.add('bg-fixed');
+    initialRender(backgroundImagen, projectsImagen, height);
 
-    setHeight(window.innerHeight);
-    window.addEventListener('resize', () => setHeight(window.innerHeight));
+    dispatch(setItem('height', window.innerHeight));
+    window.addEventListener('resize', () => dispatch(setItem('height', window.innerHeight)));
+    dispatch(setItem('aboutHeigth', document.querySelector('#about').offsetHeight));
 
     reveal(0, '.reveal0');
     // Este useEffect se ejecuta al recargar la página
@@ -56,7 +58,6 @@ export default function Home() {
       k += 1;
       if (k > 10) {
         // Aplico esto cada 10 px de scrolleo
-        setStatus((prev) => prev + 1);
         scroller();
         k = 0;
       }
@@ -72,10 +73,11 @@ export default function Home() {
 
       <Meta />
       <div style={{ height: height === 0 ? '100%' : `${height}px` }} className="flex flex-col" id="home">
-        <Navbar handleScroll={handleScroll} />
+        <Navbar handleScroll={handleScroll} bg={bg} setBg={null} />
         <Main trans={trans[0]} handleScroll={handleScroll} />
         <div className="animate-bounce flex justify-center mt-auto mb-16"><img src="/Icons/Arrow.svg" width="16px" alt="" /></div>
       </div>
+      <div id="aboutBack" style={aboutBackStyle(height, aboutHeigth, aboutImagen)} />
       <About trans={trans} />
       <Proyectos />
       <Contact />
